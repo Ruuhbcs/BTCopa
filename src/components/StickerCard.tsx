@@ -33,12 +33,13 @@ export default function StickerCard({
   }, [player.imageUrl]);
 
   const handleImageError = () => {
-    if (imgSrc === "/joao.png") {
-      setImgSrc("/joão.png");
+    // Falls back between accented and unaccented versions relative to base path
+    if (imgSrc === "joao.png" || imgSrc === "./joao.png" || imgSrc === "/joao.png") {
+      setImgSrc("joão.png");
       return;
     }
-    if (imgSrc === "/joão.png") {
-      setImgSrc("/joao.png");
+    if (imgSrc === "joão.png" || imgSrc === "./joão.png" || imgSrc === "/joão.png") {
+      setImgSrc("joao.png");
       return;
     }
     setImageError(true);
