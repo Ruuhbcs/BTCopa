@@ -3,7 +3,7 @@ name: Deploy para o GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Altere se sua branch principal tiver outro nome (ex: master)
+    branches: ["main"] # Muda para "master" se a sua branch principal tiver esse nome
 
   workflow_dispatch:
 
