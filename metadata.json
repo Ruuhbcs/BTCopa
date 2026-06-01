@@ -1,0 +1,6 @@
+{
+  "name": "Seleção Copa BT",
+  "description": "Álbum de figurinhas colecionáveis e escalação tática tagueando o time BT Satisfação e Jornada do Cliente com o tema Copa do Mundo do Brasil",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

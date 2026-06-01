@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Grotesk:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-brazil-green: #009739;
+  --color-brazil-blue: #012169;
+  --color-brazil-yellow: #FFDF00;
+}
+
+@utility pitch-pattern {
+  background-image: 
+    radial-gradient(circle at center, transparent 0%, transparent 18%, rgba(255, 255, 255, 0.15) 18.5%, rgba(255, 255, 255, 0.15) 19.5%, transparent 20%), 
+    linear-gradient(to right, transparent 49.8%, rgba(255, 255, 255, 0.15) 49.9%, rgba(255, 255, 255, 0.15) 50.1%, transparent 50.2%);
+}
+
+/* Custom continuous shine for golden stickers and stadium look */
+@keyframes gold-shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shine-effect {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 223, 0, 0.15) 0%,
+    rgba(255, 255, 255, 0.5) 25%,
+    rgba(255, 223, 0, 0.15) 50%,
+    rgba(255, 255, 255, 0.5) 75%,
+    rgba(255, 223, 0, 0.15) 100%
+  );
+  background-size: 200% auto;
+  animation: gold-shine 4s linear infinite;
+}
+
+/* Scrollbar styling for smooth experience */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #012169;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFDF00;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffd700;
+}
