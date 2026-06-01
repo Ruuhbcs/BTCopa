@@ -7,7 +7,6 @@ import BannerQuote from "./components/BannerQuote";
 import StickerCard from "./components/StickerCard";
 import PackOpener from "./components/PackOpener";
 import TacticalPitch from "./components/TacticalPitch";
-import QuizView from "./components/QuizView";
 
 import { 
   Trophy, 
@@ -129,23 +128,6 @@ export default function App() {
     setGluedIds(allIds);
     setConfettiActive(true);
     SoundFX.playCelebration();
-  };
-
-  const handleRewardStickers = (players: Player[]) => {
-    const newUnlocked = [...unlockedIds];
-    let newlyUnlockedCount = 0;
-
-    players.forEach((p) => {
-      if (!newUnlocked.includes(p.id)) {
-        newUnlocked.push(p.id);
-        newlyUnlockedCount++;
-      }
-    });
-
-    if (newlyUnlockedCount > 0) {
-      setUnlockedIds(newUnlocked);
-      setConfettiActive(true);
-    }
   };
 
   const handleSingleStickerGlue = (playerId: number) => {
@@ -276,21 +258,6 @@ export default function App() {
               }`}
             >
               <span className="skew-x-[12deg] flex items-center gap-2">📋 Escalar Seleção</span>
-            </button>
-
-            {/* Quiz Tab */}
-            <button
-              onClick={() => {
-                setActiveTab("quiz");
-                SoundFX.playFlip();
-              }}
-              className={`cursor-pointer whitespace-nowrap px-5 py-3 rounded text-xs sm:text-sm font-black uppercase tracking-wider transition-all flex items-center gap-2 skew-x-[-12deg] border-2 ${
-                activeTab === "quiz"
-                  ? "bg-[#012169] text-[#FFDF00] border-[#FFDF00] shadow-md"
-                  : "bg-[#012169]/50 text-white hover:bg-[#012169]/80 border-white/20"
-              }`}
-            >
-              <span className="skew-x-[12deg] flex items-center gap-2">🏆 Quiz BT</span>
             </button>
           </div>
         </div>
@@ -451,21 +418,7 @@ export default function App() {
               </motion.div>
             )}
 
-            {/* TAB 4: QUIZ BT */}
-            {activeTab === "quiz" && (
-              <motion.div
-                key="tab-quiz"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              >
-                <QuizView 
-                  unlockedIds={unlockedIds}
-                  onRewardStickers={handleRewardStickers}
-                />
-              </motion.div>
-            )}
+
 
           </AnimatePresence>
         </div>
@@ -478,10 +431,6 @@ export default function App() {
           BT SATISFAÇÃO • 2026
         </div>
         <div className="flex flex-wrap gap-4 mt-2 md:mt-0">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full bg-[#012169]"></div>
-            <span className="text-xs font-black">CX SCORE: 9.8</span>
-          </div>
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 rounded-full bg-[#009739]"></div>
             <span className="text-xs font-black uppercase">STATUS: EM CAMPO</span>

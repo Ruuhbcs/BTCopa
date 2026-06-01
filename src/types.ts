@@ -34,7 +34,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/eric.png",
     position: "Meio-Campo Armador",
     jerseyNumber: 10,
-    skills: { nps: 99, empatia: 98, agilidade: 95, resolucao: 97 },
+    skills: { nps: 100, empatia: 98, agilidade: 95, resolucao: 97 },
     description: "Profissional extremamente comprometido com o sucesso do cliente, transformando feedbacks in melhorias operacionais contínuas."
   },
   {
@@ -45,7 +45,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/kathleen.png",
     position: "Volante de Contenção",
     jerseyNumber: 5,
-    skills: { nps: 98, empatia: 99, agilidade: 96, resolucao: 98 },
+    skills: { nps: 100, empatia: 99, agilidade: 96, resolucao: 98 },
     description: "Especialista em garantir a qualidade de cada interação, eliminando dores de jornada com análises detalhadas."
   },
   {
@@ -56,7 +56,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/marina.png",
     position: "Centroavante de Sucesso",
     jerseyNumber: 9,
-    skills: { nps: 97, empatia: 98, agilidade: 98, resolucao: 96 },
+    skills: { nps: 100, empatia: 98, agilidade: 98, resolucao: 96 },
     description: "Sempre focada no sucesso dos projetos, impulsionando a satisfação do cliente com soluções de melhoria contínua."
   },
   {
@@ -67,7 +67,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/simone.png",
     position: "Goleira Intransponível",
     jerseyNumber: 1,
-    skills: { nps: 99, empatia: 99, agilidade: 95, resolucao: 97 },
+    skills: { nps: 100, empatia: 99, agilidade: 95, resolucao: 97 },
     description: "Atua como guardiã da experiência do cliente, garantindo que suas necessidades sejam ouvidas e plenamente atendidas."
   },
   {
@@ -78,7 +78,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/ruth.png",
     position: "Pivô do NPS / Meio-Campo",
     jerseyNumber: 8,
-    skills: { nps: 98, empatia: 99, agilidade: 97, resolucao: 98 },
+    skills: { nps: 100, empatia: 99, agilidade: 97, resolucao: 98 },
     description: "Excelente capacidade de conectar requisitos operacionais complexos a entregas de alto valor prático para o cliente."
   },
   {
@@ -89,7 +89,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/paulo.png",
     position: "Zagueiro Xerife",
     jerseyNumber: 3,
-    skills: { nps: 96, empatia: 97, agilidade: 98, resolucao: 99 },
+    skills: { nps: 100, empatia: 97, agilidade: 98, resolucao: 99 },
     description: "Focado em sanar as maiores complexidades do cliente com agilidade, empatia e extrema precisão técnica."
   },
   {
@@ -100,7 +100,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/janayna.png",
     position: "Ponta-Direita Veloz",
     jerseyNumber: 7,
-    skills: { nps: 98, empatia: 98, agilidade: 96, resolucao: 97 },
+    skills: { nps: 100, empatia: 98, agilidade: 96, resolucao: 97 },
     description: "Domina a comunicação activa para garantir que as expectativas estejam alinhadas entre o time e a jornada real."
   },
   {
@@ -111,7 +111,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/thamiris.png",
     position: "Ponta-Esquerda Habilidosa",
     jerseyNumber: 11,
-    skills: { nps: 99, empatia: 97, agilidade: 97, resolucao: 98 },
+    skills: { nps: 100, empatia: 97, agilidade: 97, resolucao: 98 },
     description: "Busca sempre os caminhos mais dinâmicos e inovadores para remover impedimentos da experiência diária do usuário."
   },
   {
@@ -122,7 +122,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/vinicius.png",
     position: "Lateral Ofensivo",
     jerseyNumber: 2,
-    skills: { nps: 97, empatia: 96, agilidade: 99, resolucao: 98 },
+    skills: { nps: 100, empatia: 96, agilidade: 99, resolucao: 98 },
     description: "Sempre dedicado a desenhar ferramentas robustas de automação que agilizam nossos fluxos de atendimento diário."
   },
   {
@@ -133,7 +133,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/laefo.png",
     position: "Lateral de Apoio",
     jerseyNumber: 6,
-    skills: { nps: 96, empatia: 98, agilidade: 97, resolucao: 98 },
+    skills: { nps: 100, empatia: 98, agilidade: 97, resolucao: 98 },
     description: "Garante cobertura técnica e apoio de alto nível para manter todo o time focado no bem-estar e metas da jornada."
   },
   {
@@ -144,7 +144,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/thais.png",
     position: "Meio-Campo Construtivo",
     jerseyNumber: 14,
-    skills: { nps: 99, empatia: 99, agilidade: 96, resolucao: 97 },
+    skills: { nps: 100, empatia: 99, agilidade: 96, resolucao: 97 },
     description: "Dedicada a estabelecer relacionamentos duradouros com os clientes através de empatia e clareza de comunicação."
   },
   {
@@ -155,7 +155,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/gabriel.png",
     position: "Zagueiro Técnico",
     jerseyNumber: 4,
-    skills: { nps: 98, empatia: 97, agilidade: 98, resolucao: 98 },
+    skills: { nps: 100, empatia: 97, agilidade: 98, resolucao: 98 },
     description: "Presta atenção minuciosa aos detalhes para mapear métricas pós-atendimento e otimizar processos de forma sustentável."
   },
   {
@@ -166,7 +166,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/joao.png",
     position: "Segundo Atacante",
     jerseyNumber: 17,
-    skills: { nps: 97, empatia: 98, agilidade: 98, resolucao: 97 },
+    skills: { nps: 100, empatia: 98, agilidade: 98, resolucao: 97 },
     description: "Facilita o progresso diário identificando novos pontos de melhoria na interação direta com nossos usuários finais."
   },
   {
@@ -177,7 +177,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/danielly.png",
     position: "Maestrina do Layout",
     jerseyNumber: 22,
-    skills: { nps: 98, empatia: 99, agilidade: 97, resolucao: 97 },
+    skills: { nps: 100, empatia: 99, agilidade: 97, resolucao: 97 },
     description: "Desenha experiências e fluxos intuitivos de jornada que agregam forte clareza visual e conforto comunicativo."
   },
   {
@@ -188,7 +188,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/aline.png",
     position: "Capitã Geral da Equipe",
     jerseyNumber: 15,
-    skills: { nps: 99, empatia: 98, agilidade: 98, resolucao: 99 },
+    skills: { nps: 100, empatia: 98, agilidade: 98, resolucao: 99 },
     description: "Líder inspiradora, focada em organizar e motivar a equipe de BT Satisfação a alcançar metas audaciosas de NPS."
   },
   {
@@ -199,7 +199,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/isabella.png",
     position: "Goleira Auxiliar de Segurança",
     jerseyNumber: 12,
-    skills: { nps: 99, empatia: 99, agilidade: 97, resolucao: 98 },
+    skills: { nps: 100, empatia: 99, agilidade: 97, resolucao: 98 },
     description: "Sempre atenta aos padrões de excelência para blindar a jornada contra qualquer tipo de instabilidade ou desconforto."
   },
   {
@@ -210,7 +210,7 @@ export const BT_PLAYERS: Player[] = [
     imageUrl: "/carolina.png",
     position: "Diretora Técnica de Clima",
     jerseyNumber: 99,
-    skills: { nps: 99, empatia: 99, agilidade: 97, resolucao: 99 },
+    skills: { nps: 100, empatia: 99, agilidade: 97, resolucao: 99 },
     description: "Sempre em busca do engajamento e desenvolvimento de clima agradável que inspira colaboração entre toda a comissão."
   }
 ];

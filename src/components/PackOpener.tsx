@@ -155,9 +155,6 @@ export default function PackOpener({ onStickersFound, onStickerGlued, gluedStick
               <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
                 Veja quem você tirou na Seleção!
               </h2>
-              <p className="text-white bg-[#012169]/50 px-3 py-1.5 mt-2 rounded border border-white/20 text-xs sm:text-sm font-medium">
-                Clique em cada estampa para colar no álbum de figurinhas ou gire para ler os atributos!
-              </p>
             </div>
 
             {/* Released Sticker Grid */}

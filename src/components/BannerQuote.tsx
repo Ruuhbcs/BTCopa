@@ -28,11 +28,8 @@ export default function BannerQuote() {
             </h2>
           </div>
 
-          {/* Badges mimicking the original CX and 10 logos */}
+          {/* Badges mimicking the original logos */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#012169] border-2 border-[#FFDF00] flex items-center justify-center shadow-md animate-pulse">
-              <span className="text-[10px] font-black text-[#FFDF00] tracking-tighter">CX</span>
-            </div>
             <div className="w-8 h-8 rounded-full bg-[#FFDF00] border-2 border-white flex items-center justify-center shadow-md">
               <span className="text-xs font-black text-[#012169]">10</span>
             </div>

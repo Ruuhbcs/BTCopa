@@ -184,7 +184,7 @@ export default function StickerCard({
               {/* Hover Instructions */}
               <div className="absolute bottom-0 inset-x-0 bg-[#012169]/90 backdrop-blur-xs py-1.5 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="text-[10px] font-black text-[#FFDF00] flex items-center justify-center gap-1 uppercase tracking-wider">
-                  <RefreshCw className="h-3 w-3 animate-spin text-[#FFDF00]" /> Ver Atributos
+                  <RefreshCw className="h-3 w-3 animate-spin text-[#FFDF00]" /> Ver Detalhes
                 </span>
               </div>
             </div>
@@ -284,7 +284,7 @@ export default function StickerCard({
               {/* Skills Attribute Bars */}
               <div className="space-y-1.5 flex-1 justify-center flex flex-col">
                 <span className="text-[9px] font-black uppercase tracking-widest text-[#FFDF00] block mb-1">
-                  Atributos da Jornada
+                  Habilidades da Jornada
                 </span>
                 {/* NPS */}
                 <div>
