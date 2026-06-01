@@ -99,7 +99,7 @@ export default function TacticalPitch({ unlockedPlayerIds }: TacticalPitchProps)
   };
 
   return (
-    <div className="bg-[#012169] border-4 border-[#FFDF00] p-6 rounded-xl shadow-2xl text-white relative overflow-hidden">
+    <div className="bg-[#012169] border-4 border-[#FFDF00] p-3 sm:p-5 md:p-6 rounded-xl shadow-2xl text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-5 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Settings bar */}
@@ -189,7 +189,7 @@ export default function TacticalPitch({ unlockedPlayerIds }: TacticalPitchProps)
                       setActiveSelectPos(isSelectingThis ? null : pos.id);
                       SoundFX.playFlip();
                     }}
-                    className={`cursor-pointer group flex h-14 w-14 items-center justify-center rounded-full bg-[#012169] shadow-lg border-3 transition-colors ${
+                    className={`cursor-pointer group flex h-9 w-9 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-[#012169] shadow-lg border-2 sm:border-3 transition-colors ${
                       player
                         ? "border-[#FFDF00] hover:border-white"
                         : "border-white/40 border-dashed hover:border-white"
@@ -206,12 +206,12 @@ export default function TacticalPitch({ unlockedPlayerIds }: TacticalPitchProps)
                         <div className="absolute inset-0 bg-[#012169]/20 group-hover:bg-transparent transition-all" />
                       </div>
                     ) : (
-                      <span className="text-[#FFDF00] font-black text-lg">+</span>
+                      <span className="text-[#FFDF00] font-black text-xs sm:text-base md:text-lg">+</span>
                     )}
                   </motion.div>
 
                   {/* Player Name Tag */}
-                  <div className="mt-1 bg-[#012169] text-white border-2 border-[#FFDF00] rounded px-2 py-0.5 text-[10px] font-black text-center max-w-24 whitespace-nowrap overflow-hidden text-ellipsis shadow-md skew-x-[-8deg] uppercase">
+                  <div className="mt-0.5 sm:mt-1 bg-[#012169] text-white border sm:border-2 border-[#FFDF00] rounded px-1 sm:px-2 py-0.5 text-[8px] sm:text-[10px] font-black text-center max-w-16 sm:max-w-20 md:max-w-24 whitespace-nowrap overflow-hidden text-ellipsis shadow-md skew-x-[-8deg] uppercase">
                     <span className="skew-x-[8deg] block">
                       {player ? player.name.split(" ")[0] : pos.label.split(" ")[0]}
                     </span>

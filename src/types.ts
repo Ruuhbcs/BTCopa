@@ -163,7 +163,7 @@ export const BT_PLAYERS: Player[] = [
     name: "João Augusto",
     role: "Facilitador de Jornada",
     team: "BT Satisfação",
-    imageUrl: "/joao.png",
+    imageUrl: "/joão.png",
     position: "Segundo Atacante",
     jerseyNumber: 17,
     skills: { nps: 100, empatia: 98, agilidade: 98, resolucao: 97 },
