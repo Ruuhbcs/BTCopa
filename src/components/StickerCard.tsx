@@ -48,7 +48,7 @@ export default function StickerCard({
 
   const handleCardClick = () => {
     if (!isGlued) {
-      if (onClickGlue) {
+      if (isUnlocked && onClickGlue) {
         SoundFX.playGlue();
         onClickGlue();
       }
@@ -80,8 +80,12 @@ export default function StickerCard({
         <div
           className={`absolute inset-0 h-full w-full rounded shadow-2xl transition-all duration-300 ${
             isSpecial && isGlued
-              ? "bg-gradient-to-br from-amber-400 via-yellow-200 to-amber-500 p-[3.5px] shadow-[0_0_20px_rgba(255,223,0,0.7)]"
-              : "bg-slate-950/80 p-1 border-2 border-dashed border-[#FFDF00]/70"
+              ? `bg-gradient-to-br from-amber-400 via-yellow-200 to-amber-500 p-[3.5px] ${
+                  shimmer ? "shadow-[0_0_35px_rgba(255,223,0,1)] scale-[1.03]" : "shadow-[0_0_20px_rgba(255,223,0,0.7)]"
+                }`
+              : `bg-slate-950/80 p-1 border-2 border-dashed border-[#FFDF00]/70 ${
+                  shimmer ? "shadow-[0_0_25px_rgba(255,223,0,0.9)] scale-[1.02]" : ""
+                }`
           }`}
         >
           {isGlued ? (
@@ -105,6 +109,11 @@ export default function StickerCard({
                     : "bg-linear-to-tr from-transparent via-white/20 to-transparent"
                 }`}
               />
+
+              {/* Active glow screen overlay when tapped/shimmering */}
+              {shimmer && (
+                <div className="absolute inset-x-0 h-full w-full bg-white/20 mix-blend-overlay z-15 pointer-events-none animate-pulse" />
+              )}
               
               {imageError ? (
                 <div className="w-full h-full bg-gradient-to-br from-[#009739] via-[#007A2A] to-[#012169] flex flex-col items-center justify-between p-3 relative text-white">
@@ -144,12 +153,9 @@ export default function StickerCard({
                   </div>
 
                   {/* Identification Label at the bottom of the card */}
-                  <div className="w-full text-center bg-black/40 py-1 px-1.5 rounded border border-white/10 z-15 select-none">
+                  <div className="w-full text-center bg-black/40 py-1 px-1.5 rounded border border-white/10 z-15 select-none font-sans font-black">
                     <div className="text-[10px] font-black text-[#FFDF00] tracking-tight truncate uppercase">
-                      {player.name.split(" ")[0]} {player.name.split(" ")[1] || ""}
-                    </div>
-                    <div className="text-[7.5px] text-white/80 font-black tracking-wider uppercase truncate">
-                      {player.position}
+                      {player.name}
                     </div>
                   </div>
                 </div>
@@ -175,7 +181,7 @@ export default function StickerCard({
               </div>
               <div>
                 <h4 className="font-sans font-black text-white text-sm uppercase tracking-tight">{player.name}</h4>
-                <p className="text-[10px] text-[#FFDF00] font-black uppercase tracking-wider mt-0.5">{player.role.substring(0, 15)}...</p>
+                <p className="text-[10px] text-[#FFDF00] font-black uppercase tracking-wider mt-0.5">Figurinha #{player.id}</p>
               </div>
 
               {isUnlocked ? (

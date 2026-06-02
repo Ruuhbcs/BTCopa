@@ -268,8 +268,8 @@ export default function TacticalPitch({ unlockedPlayerIds }: TacticalPitchProps)
                         />
                       </div>
                       <div>
-                        <div className="text-[10px] font-black leading-none uppercase">{p.name.split(" ")[0]}</div>
-                        <div className="text-[8px] text-[#FFDF00] font-black uppercase mt-1">{p.role.substring(0, 15)}...</div>
+                        <div className="text-[10px] font-black leading-none uppercase">{p.name}</div>
+                        <div className="text-[8px] text-[#FFDF00] font-black uppercase mt-1">Figurinha #{p.id}</div>
                       </div>
                       {!unlocked && (
                         <span className="absolute inset-0 bg-transparent flex items-center justify-center font-black text-[9px] text-red-500 bg-black/10 rounded">

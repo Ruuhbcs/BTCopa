@@ -156,8 +156,7 @@ export default function App() {
   };
 
   const filteredPlayers = BT_PLAYERS.filter((player) => {
-    const matchesSearch = player.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          player.role.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = player.name.toLowerCase().includes(searchQuery.toLowerCase());
     
     if (roleFilter === "Todos") return matchesSearch;
     const isGlued = gluedIds.includes(player.id);
@@ -328,7 +327,7 @@ export default function App() {
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#FFDF00]" />
                     <input
                       type="text"
-                      placeholder="Buscar craque por nome ou função..."
+                      placeholder="Buscar figurinha por nome..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="w-full bg-[#009739]/30 border border-white/35 rounded pl-9 pr-4 py-2.5 text-xs font-semibold focus:outline-hidden focus:border-[#FFDF00] text-white placeholder-white/60"
