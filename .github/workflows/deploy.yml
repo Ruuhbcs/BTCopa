@@ -1,0 +1,54 @@
+name: Deploy para o GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          # Removido cache: 'npm' para funcionar mesmo sem o package-lock.json!
+
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Rodar Build de Produção
+        run: npm run build
+
+      - name: Configurar Páginas do GitHub
+        uses: actions/configure-pages@v4
+
+      - name: Upload do Artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy para o GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
