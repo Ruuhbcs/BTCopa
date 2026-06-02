@@ -22,7 +22,6 @@ export default function StickerCard({
   onGoToPacks,
   interactive = true,
 }: StickerCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
   const [shimmer, setShimmer] = useState(false);
   const [imgSrc, setImgSrc] = useState(player.imageUrl);
   const [imageError, setImageError] = useState(false);
@@ -57,28 +56,23 @@ export default function StickerCard({
     }
 
     if (interactive) {
-      setIsFlipped(!isFlipped);
-      SoundFX.playFlip();
       setShimmer(true);
+      SoundFX.playGlue(); // nice sticker sound when tapped
       setTimeout(() => setShimmer(false), 800);
     }
   };
 
   return (
-    <div className="relative aspect-[3/4] w-full select-none" style={{ perspective: "1000px" }}>
+    <div className="relative aspect-[3/4] w-full select-none">
       {/* Sparkle effects on glued cards */}
-      {isGlued && !isFlipped && (
+      {isGlued && (
         <span className="absolute -top-1 -right-1 z-25 flex h-5 w-5 items-center justify-center rounded bg-[#FFDF00] text-xs font-black text-[#012169] shadow-md animate-bounce ring-1 ring-white skew-x-[-12deg]">
           <span className="skew-x-[12deg] block text-[10px]">★</span>
         </span>
       )}
 
       <motion.div
-        className="relative h-full w-full transition-all duration-500"
-        style={{
-          transformStyle: "preserve-3d",
-          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-        }}
+        className="relative h-full w-full"
         whileHover={isGlued ? { scale: 1.05, y: -4 } : { scale: 1.02 }}
         onClick={handleCardClick}
       >
@@ -86,10 +80,9 @@ export default function StickerCard({
         <div
           className={`absolute inset-0 h-full w-full rounded shadow-2xl transition-all duration-300 ${
             isSpecial && isGlued
-              ? "bg-gradient-to-br from-amber-400 via-yellow-200 to-amber-500 p-[3.5px] shadow-[0_0_20px_rgba(255,223,0,0.7)] animate-pulse"
+              ? "bg-gradient-to-br from-amber-400 via-yellow-200 to-amber-500 p-[3.5px] shadow-[0_0_20px_rgba(255,223,0,0.7)]"
               : "bg-slate-950/80 p-1 border-2 border-dashed border-[#FFDF00]/70"
           }`}
-          style={{ backfaceVisibility: "hidden" }}
         >
           {isGlued ? (
             <div className={`relative h-full w-full overflow-hidden rounded border ${
@@ -170,24 +163,6 @@ export default function StickerCard({
                   onError={handleImageError}
                 />
               )}
-
-              {/* Shine particle decoration */}
-              {isSpecial ? (
-                <div className="absolute top-2 right-2 bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-300 text-[#012169] text-[9px] font-black px-2 py-0.5 rounded skew-x-[-12deg] shadow-lg uppercase border border-white animate-bounce z-15">
-                  <span className="skew-x-[12deg] flex items-center gap-0.5">★ LÍDER ★</span>
-                </div>
-              ) : (
-                <div className="absolute top-2 right-2 bg-[#FFDF00] text-[#012169] text-[9px] font-black px-1.5 py-0.5 rounded skew-x-[-12deg] shadow-md uppercase z-15">
-                  <span className="skew-x-[12deg] block">NPS {player.skills.nps}</span>
-                </div>
-              )}
-
-              {/* Hover Instructions */}
-              <div className="absolute bottom-0 inset-x-0 bg-[#012169]/90 backdrop-blur-xs py-1.5 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-[10px] font-black text-[#FFDF00] flex items-center justify-center gap-1 uppercase tracking-wider">
-                  <RefreshCw className="h-3 w-3 animate-spin text-[#FFDF00]" /> Ver Detalhes
-                </span>
-              </div>
             </div>
           ) : (
             // Silhouette state
@@ -234,127 +209,6 @@ export default function StickerCard({
             </div>
           )}
         </div>
-
-        {/* BACK SIDE (Player Stats) */}
-        {isGlued && (
-          <div
-            className={`absolute inset-0 h-full w-full rounded p-4 shadow-2xl text-white transition-all duration-300 ${
-              isSpecial
-                ? "border-4 border-amber-400 bg-gradient-to-br from-[#012169] via-yellow-950/80 to-[#009739]"
-                : "border-4 border-[#FFDF00] bg-gradient-to-br from-[#012169] via-[#012169]/90 to-[#009739]"
-            }`}
-            style={{
-              backfaceVisibility: "hidden",
-              transform: "rotateY(180deg)",
-            }}
-          >
-            {/* Background pitch watermark */}
-            <div className="absolute inset-0 opacity-5 bg-[size:16px_16px] pitch-pattern" />
-
-            <div className="relative h-full flex flex-col justify-between z-10">
-              {/* Header */}
-              <div className="flex items-center justify-between border-b border-white/20 pb-2">
-                <div className="flex items-center gap-1.5">
-                  <span className="flex h-6 w-6 items-center justify-center rounded bg-[#FFDF00] text-xs font-black text-[#012169]">
-                    {player.jerseyNumber}
-                  </span>
-                  <div>
-                    <h3 className="font-sans font-black text-xs sm:text-sm tracking-tight uppercase leading-none">{player.name}</h3>
-                    <p className="text-[9px] text-[#FFDF00] font-black uppercase tracking-wider mt-1">{player.position} | {player.role}</p>
-                  </div>
-                </div>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg"
-                  alt="Brasil"
-                  referrerPolicy="no-referrer"
-                  className="w-5 h-3.5 rounded-xs border border-white/40 shadow-sm"
-                />
-              </div>
-
-              {/* Position and Description */}
-              <div className="my-1.5 bg-black/40 p-2.5 rounded border-2 border-[#FFDF00]">
-                <span className="text-[9px] font-black uppercase text-[#FFDF00] flex items-center gap-1 mb-1">
-                  <Target className="h-3 w-3 inline fill-[#FFDF00] text-[#012169]" />
-                  Seleção BT Característica
-                </span>
-                <p className="text-[10px] font-medium leading-relaxed text-white/95">
-                  {player.description}
-                </p>
-              </div>
-
-              {/* Skills Attribute Bars */}
-              <div className="space-y-1.5 flex-1 justify-center flex flex-col">
-                <span className="text-[9px] font-black uppercase tracking-widest text-[#FFDF00] block mb-1">
-                  Habilidades da Jornada
-                </span>
-                {/* NPS */}
-                <div>
-                  <div className="flex justify-between text-[9px] font-black uppercase text-white/90 mb-0.5">
-                    <span>Satisfação / NPS</span>
-                    <span className="text-[#FFDF00]">{player.skills.nps}%</span>
-                  </div>
-                  <div className="h-2 w-full rounded bg-white/10 p-0.5 border border-white/5">
-                    <motion.div 
-                      initial={{ width: 0 }} 
-                      animate={{ width: `${player.skills.nps}%` }} 
-                      className="h-full rounded bg-[#FFDF00]" 
-                    />
-                  </div>
-                </div>
-                {/* Empatia */}
-                <div>
-                  <div className="flex justify-between text-[9px] font-black uppercase text-white/90 mb-0.5">
-                    <span>Empatia / Escuta</span>
-                    <span className="text-green-300">{player.skills.empatia}%</span>
-                  </div>
-                  <div className="h-2 w-full rounded bg-white/10 p-0.5 border border-white/5">
-                    <motion.div 
-                      initial={{ width: 0 }} 
-                      animate={{ width: `${player.skills.empatia}%` }} 
-                      className="h-full rounded bg-green-400" 
-                    />
-                  </div>
-                </div>
-                {/* Agilidade */}
-                <div>
-                  <div className="flex justify-between text-[9px] font-black uppercase text-white/90 mb-0.5">
-                    <span>Agilidade / Fila</span>
-                    <span className="text-blue-300">{player.skills.agilidade}%</span>
-                  </div>
-                  <div className="h-2 w-full rounded bg-white/10 p-0.5 border border-white/5">
-                    <motion.div 
-                      initial={{ width: 0 }} 
-                      animate={{ width: `${player.skills.agilidade}%` }} 
-                      className="h-full rounded bg-blue-400" 
-                    />
-                  </div>
-                </div>
-                {/* Resolutividade */}
-                <div>
-                  <div className="flex justify-between text-[9px] font-black uppercase text-white/90 mb-0.5">
-                    <span>Resolução / Hexa</span>
-                    <span className="text-amber-400">{player.skills.resolucao}%</span>
-                  </div>
-                  <div className="h-2 w-full rounded bg-white/10 p-0.5 border border-white/5">
-                    <motion.div 
-                      initial={{ width: 0 }} 
-                      animate={{ width: `${player.skills.resolucao}%` }} 
-                      className="h-full rounded bg-amber-400" 
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Footer badges */}
-              <div className="flex items-center justify-between border-t border-white/10 pt-2 text-[8px] font-black text-[#FFDF00]">
-                <span className="flex items-center gap-1 text-[#FFDF00]">
-                  <Award className="h-3.5 w-3.5 text-[#FFDF00]" /> BT 2026
-                </span>
-                <span className="tracking-wide">PANINI ORIGINAL</span>
-              </div>
-            </div>
-          </div>
-        )}
       </motion.div>
     </div>
   );
